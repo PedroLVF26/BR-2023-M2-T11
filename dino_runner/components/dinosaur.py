@@ -39,7 +39,7 @@ class Dinossaur:
             self.dino_run = True
             self.dino_jump = False
         
-        if user_input[pygame.K_DOWN]:
+        if user_input[pygame.K_DOWN] and not self.dino_jump:
         # Condicional criada para verificar se o usuário pressionou a seta para baixo.
             self.dino_jump = False
             # Caso tenha pressionado, a variável dino_jump será False, pois, o boneco não pode correr e agachar enquanto pressiona uma só tecla
@@ -47,7 +47,7 @@ class Dinossaur:
             # Caso tenha pressionado, a variável dino_run será False
             self.dino_duck = True
             # Caso tenha pressionado, a variável dino_duck será True
-       
+        
 
         if self.step_index >= 10:
             self.step_index = 0
