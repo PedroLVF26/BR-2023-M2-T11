@@ -1,5 +1,7 @@
-from dino_runner.utils.constants import RUNNING, JUMPING, DUCKING
 import pygame
+from pygame.sprite import Sprite
+
+from dino_runner.utils.constants import RUNNING, JUMPING, DUCKING
 
 X_POS = 80
 Y_POS = 310
@@ -7,7 +9,8 @@ JUMP_VEL = 8.5
 Y_DUCK = 335
 # Constante criada para definir o valor da coordenada em Y para o dinossauro agachado, visto que, caso utilize a constante Y_POS, o nosso dino irá 'flutuar'
 
-class Dinossaur:
+
+class Dinossaur(Sprite):
     def __init__(self):
         self.image = RUNNING[0]
         self.dino_rect = self.image.get_rect()
@@ -39,7 +42,7 @@ class Dinossaur:
             self.dino_run = True
             self.dino_jump = False
         
-        if user_input[pygame.K_DOWN] and not self.dino_jump:
+        elif user_input[pygame.K_DOWN] and not self.dino_jump:
         # Condicional criada para verificar se o usuário pressionou a seta para baixo.
             self.dino_jump = False
             # Caso tenha pressionado, a variável dino_jump será False, pois, o boneco não pode correr e agachar enquanto pressiona uma só tecla
@@ -74,9 +77,6 @@ class Dinossaur:
             self.dino_run = True
             # Faz com que o dino volte a correr
             
-            
-            
-
     def duck(self):
         # Nesta linha, estamos atribuindo um valor para a variável self.image, sendo DUCKING[0] ou DUCKING[1], a depender do valor do step_index.
         self.image = DUCKING[0] if self.step_index < 5 else DUCKING[1] 
@@ -94,8 +94,5 @@ class Dinossaur:
         # Esta variável serve para verificar se o dinossauro está 'ducking', ou 'agachado', ou não.
         self.dino_duck = False
         
-            
-
-
     def draw(self, screen):
         screen.blit(self.image, (self.dino_rect.x, self.dino_rect.y))
