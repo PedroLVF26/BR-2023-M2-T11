@@ -42,7 +42,7 @@ class Dinossaur(Sprite):
             self.dino_run = True
             self.dino_jump = False
         
-        elif user_input[pygame.K_DOWN] and not self.dino_jump:
+        if user_input[pygame.K_DOWN] and not self.dino_jump:
         # Condicional criada para verificar se o usuário pressionou a seta para baixo.
             self.dino_jump = False
             # Caso tenha pressionado, a variável dino_jump será False, pois, o boneco não pode correr e agachar enquanto pressiona uma só tecla
