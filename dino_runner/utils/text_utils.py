@@ -2,10 +2,10 @@ import pygame
 
 from dino_runner.utils.constants import SCREEN_HEIGHT, SCREEN_WIDTH
 
-FONT_COLOR = (0, 0, 0)
-FONT_SIZE = 22
-FONT_STYLE = "freesansbold.ttf" 
 
+FONT_COLOR = (255, 255, 255)
+FONT_SIZE = 22
+FONT_STYLE = r"C:\Users\pedro\OneDrive\Documentos\GitHub\BR-2023-M2-T11\dino_runner\assets\Other\blasphemous.ttf"
 
 def draw_message_component(
     message,
@@ -20,3 +20,4 @@ def draw_message_component(
     text_rect = text.get_rect()
     text_rect.center = (pos_x_center, pos_y_center)
     screen.blit(text, text_rect)
+    
